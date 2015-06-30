@@ -34,7 +34,6 @@ class ContactsList : UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("ContactCell", forIndexPath: indexPath ) as! ContactCell
         cell.titleLabel.text = self.contacts[indexPath.item]["name"].string
         cell.subtitleLabel?.text = self.contacts[indexPath.item]["phone"]["home"].string
-        
         cell.cellImage?.setImageWithUrl( NSURL( string: self.contacts[indexPath.item]["smallImageURL"].string! )!)
         return cell
     }
@@ -44,7 +43,7 @@ class ContactsList : UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        retrieveAndDisplayDetails( indexPath.item )
+        self.performSegueWithIdentifier("DetailSegue", sender: indexPath.item)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -53,20 +52,6 @@ class ContactsList : UITableViewController {
         if( segue.identifier == "DetailSegue") {
             let controller = segue.destinationViewController as! DetailsController
             controller.data = self.contacts[index]
-            controller.detailsData = self.contactDetails
         }
-    }
-    
-    func retrieveAndDisplayDetails( index: Int ) {
-        
-        let url = NSURL(string: self.contacts[index]["detailsURL"].string! )
-        let request = NSURLRequest(URL: url!)
-        
-        let completion: (NSURLResponse!, NSData!, NSError!) -> Void = {response, data, error in
-            self.contactDetails = JSON( data: data )
-            self.performSegueWithIdentifier("DetailSegue", sender: index)
-            
-        }
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: completion )
     }
 }

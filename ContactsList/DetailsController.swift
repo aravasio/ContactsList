@@ -23,6 +23,8 @@ class DetailsController : UIViewController{
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var favourite: UIImageView!
     @IBOutlet weak var profile: UIImageView!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
+
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -30,7 +32,21 @@ class DetailsController : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setDetails()
+        retrieveAndDisplayDetails()
+    }
+    
+    func retrieveAndDisplayDetails() {
+        
+        let url = NSURL(string: self.data["detailsURL"].string! )
+        println( "url: " + url!.absoluteString! )
+        let request = NSURLRequest(URL: url!)
+        
+        let completion: (NSURLResponse!, NSData!, NSError!) -> Void = {response, data, error in
+            self.detailsData = JSON( data: data )
+            self.setDetails()
+            self.loading.stopAnimating()
+        }
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: completion )
     }
     
     func setDetails()
@@ -60,5 +76,9 @@ class DetailsController : UIViewController{
         email.text = detailsData["email"].string
         profile.setImageWithUrl(NSURL( string: detailsData["largeImageURL"].string! )!)
         favourite.image = UIImage(named: fav_image_name)
+    }
+    
+    @IBAction func salir() {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
