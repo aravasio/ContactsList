@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2DA028D1-8071-4EDC-B1A0-2799CE87DA6F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ContactsList</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>77B2237FA2F7DF48C402B09CB63D5C237052457F</key>
+		<string>https://github.com/aravasio/ContactsList.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ContactsList.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>77B2237FA2F7DF48C402B09CB63D5C237052457F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/aravasio/ContactsList.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>77B2237FA2F7DF48C402B09CB63D5C237052457F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>77B2237FA2F7DF48C402B09CB63D5C237052457F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ContactsList</string>
+		</dict>
+	</array>
+</dict>
+</plist>
